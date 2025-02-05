@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etch-A-Sketch</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Etch-A-Sketch</h1>
+  <div class="grid-container"></div>
+  <script>
+    // Set up grid
+    const numberOfBoxes = 16;
+    for (let i = 0; i < numberOfBoxes; i++) {
+      const row = document.createElement("div");
+      row.classList.add("grid-row");
+
+      for (let j = 0; j < numberOfBoxes; j++) {
+        const box = document.createElement("div");
+        box.classList.add("box");
+        row.appendChild(box);
+      }
+      document.querySelector(".grid-container").appendChild(row);
+    }
+
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        let humanChoice = capitalizeFirstLetter(button.value);
+        let computerChoice = capitalizeFirstLetter(getComputerChoice());
+        playRound(humanChoice, computerChoice);
+      });
+    });
+  </script>
+</body>
+</html>
