@@ -19,19 +19,15 @@
       for (let j = 0; j < numberOfBoxes; j++) {
         const box = document.createElement("div");
         box.classList.add("box");
+        box.addEventListener("mouseover", highlightBox);
         row.appendChild(box);
       }
       document.querySelector(".grid-container").appendChild(row);
     }
 
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        let humanChoice = capitalizeFirstLetter(button.value);
-        let computerChoice = capitalizeFirstLetter(getComputerChoice());
-        playRound(humanChoice, computerChoice);
-      });
-    });
+    function highlightBox(event) {
+      event.target.classList.add("highlight");
+    }
   </script>
 </body>
 </html>

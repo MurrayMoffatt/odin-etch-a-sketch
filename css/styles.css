@@ -34,3 +34,7 @@ h1, h2, p {
   flex: 1 1 auto;
   aspect-ratio: 1 / 1; /* Makes height equal to width */
 }
+
+.highlight {
+  background: #FF0000;
+}
