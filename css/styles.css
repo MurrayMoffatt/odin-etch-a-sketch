@@ -35,10 +35,6 @@ h1, h2, p {
   aspect-ratio: 1 / 1; /* Makes height equal to width */
 }
 
-.highlight {
-  background: #FF0000;
-}
-
 .buttons {
   text-align: center;
   margin: 15px 0;
