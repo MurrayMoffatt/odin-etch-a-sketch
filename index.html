@@ -8,26 +8,49 @@
 </head>
 <body>
   <h1>Etch-A-Sketch</h1>
+  <div class="buttons">
+    <button id="newgrid">New Grid</button>
+  </div>
   <div class="grid-container"></div>
+
   <script>
     // Set up grid
-    const numberOfBoxes = 16;
-    for (let i = 0; i < numberOfBoxes; i++) {
-      const row = document.createElement("div");
-      row.classList.add("grid-row");
+    drawGrid(16);
 
-      for (let j = 0; j < numberOfBoxes; j++) {
-        const box = document.createElement("div");
-        box.classList.add("box");
-        box.addEventListener("mouseover", highlightBox);
-        row.appendChild(box);
+    function drawGrid(numberOfBoxes) {
+      for (let i = 0; i < numberOfBoxes; i++) {
+        const row = document.createElement("div");
+        row.classList.add("grid-row");
+
+        for (let j = 0; j < numberOfBoxes; j++) {
+          const box = document.createElement("div");
+          box.classList.add("box");
+          box.addEventListener("mouseover", highlightBox);
+          row.appendChild(box);
+        }
+        document.querySelector(".grid-container").appendChild(row);
       }
-      document.querySelector(".grid-container").appendChild(row);
     }
 
     function highlightBox(event) {
       event.target.classList.add("highlight");
     }
+
+    document.getElementById("newgrid").addEventListener("click", function () {
+      let numberOfBoxes = prompt("Enter the number of boxes per row", 16);
+      if (numberOfBoxes === null) {
+        alert("Ok, not changing the grid.");
+      } else if (numberOfBoxes === "") {
+        alert("Please enter a number.");
+      } else if (isNaN(numberOfBoxes)) {
+        alert("Please enter a number between 1 and 100.");
+      } else if (numberOfBoxes < 1 || numberOfBoxes > 100) {
+        alert("Please enter a number between 1 and 100.");
+      } else {
+        document.querySelector(".grid-container").innerHTML = "";
+        drawGrid(numberOfBoxes);
+      }
+    });
   </script>
 </body>
 </html>

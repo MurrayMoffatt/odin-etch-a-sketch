@@ -38,3 +38,15 @@ h1, h2, p {
 .highlight {
   background: #FF0000;
 }
+
+.buttons {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
